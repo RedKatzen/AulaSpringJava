@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Aluno</title>
+</head>
+<body>
+
+<h1>Novo Aluno</h1>
+
+<form action="#" th:action="@{/aluno/novo}" th:object="${aluno}" method="post">
+    <label>Nome:</label><br/>
+    <input type="text" th:field="*{nome}" /><br />
+    <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+    <label>Endereço</label><br/>
+    <input type="text" th:field="*{endereco}"/><br/>
+    <p th:if="${#fields.hasErrors('endereco')}" th:errors="*{endereco}"></p>
+    <label>Data de nascimento:</label><br />
+    <input type="date" th:field="*{nascimento}" /><br/>
+    <p th:if="${#fields.hasErrors('nascimento')}" th:errors="*{nascimento}"></p>
+    <input type="submit" value="Salvar" />
+</form>
+
+</body>
+</html>

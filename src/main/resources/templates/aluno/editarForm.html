@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Atualizar Aluno</title>
+</head>
+<body>
+
+<h1>Editar Aluno</h1>
+
+<a href="/aluno/listar">Voltar para a lista de alunos</a><br /><br />
+
+<form action="/aluno/editar" method="post">
+    <input type="hidden" name="id" th:value="${aluno.id}" />
+    <label>Nome:</label><br/>
+    <input type="text" name="nome" th:value="${aluno.nome}" /><br />
+    <label>Endereço</label><br/>
+    <input type="text" name="endereco" th:value="${aluno.endereco}"/><br/>
+    <label>Data de nascimento:</label><br />
+    <input type="text" name="nascimento" th:value="${aluno.nascimento}"/><br/><br/>
+    <input type="submit" value="Salvar" />
+</form>
+
+</body>
+</html>

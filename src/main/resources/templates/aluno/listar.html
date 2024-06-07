@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar alunos</title>
+    <link rel="stylesheet" href="/estilos.css" />
+</head>
+<body>
+
+<h1>Alunos</h1>
+
+<p><a href="/">Inicial</a></p>
+
+<table border="1">
+    <thead>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>Matrícula</th>
+        <th>CPF</th>
+        <th>Nascimento</th>
+        <th>Editar</th>
+        <th>Excluir</th>
+    </thead>
+    <tbody>
+     <tr th:each="aluno : ${alunos}">
+         <td th:text="${aluno.id}"></td>
+         <td th:text="${aluno.nome}"></td>
+         <td th:text="${aluno.endereco}"></td>
+         <td th:text="${aluno.numeroMatricula}"></td>
+         <td th:text="${aluno.cpf}"></td>
+         <td th:text="${aluno.nascimento}"></td>
+         <td><a th:href="@{/aluno/editar/{id}(id=${aluno.id})}">Editar</a></td>
+         <td><a th:href="@{/aluno/excluir/{id}(id=${aluno.id})}">Excluir</a></td>
+     </tr>
+    </tbody>
+</table>
+
+<p><a href="/aluno/novo">Novo aluno</a></p>
+
+</body>
+</html>
